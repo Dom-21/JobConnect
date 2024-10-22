@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - JobConnect</title>
+    <style>
+        /* Inline CSS */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #1a73e8, #4285f4);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+        }
+
+        
+        .contact-container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #f4f4f4;
+        }
+        .contact-form input{
+            width: 70%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+        }
+        .contact-form textarea{
+            width: 90%;
+            height: 50%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+        }
+        .contact-form button {
+            padding: 10px 30px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #218838;
+        }
+        .alert {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <form id="contact-form" class="contact-form" action="http://127.0.0.1:5000/submit" method="post">
+            <input type="text" name="name" id="name" placeholder="Your Name" required>
+            <input type="email" name="email" id="email" placeholder="Your Email" required>
+            <textarea name="message" id="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        
+        <div id="feedback" class="alert" style="display: none;"></div>
+    </div>
+
+    <script>
+        // Function to show feedback messages
+        function showFeedback(message, type) {
+            const feedbackDiv = document.getElementById('feedback');
+            feedbackDiv.style.display = 'block';
+            feedbackDiv.textContent = message;
+            feedbackDiv.style.backgroundColor = type === 'success' ? '#d4edda' : '#f8d7da';
+            feedbackDiv.style.color = type === 'success' ? '#155724' : '#721c24';
+        }
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Simple validation
+            if (!name || !email || !message) {
+                showFeedback('Please fill out all fields.', 'error');
+                return;
+            }
+
+            // AJAX request to submit the form
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://192.168.0.150:10000/submit', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // Success - show a success message
+                        showFeedback('Thank you! Your message has been sent.', 'success');
+                        document.getElementById('contact-form').reset(); // Reset the form
+                    } else {
+                        // Error - show an error message
+                        showFeedback('There was an error sending your message. Please try again.', 'error');
+                    }
+                }
+            };
+
+            xhr.send(`name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&message=${encodeURIComponent(message)}`);
+        });
+</script>
+
+</body>
+</html>

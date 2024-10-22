@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Signup</title>
+    <link rel="stylesheet" href="../static/css/signup.css">
+</head>
+<body>
+    <header>
+        <h1>Signup for JobConnect</h1>
+        <label class="switch">
+            <input type="checkbox" id="dark-mode-toggle">
+            <span class="slider"></span>
+        </label>
+    </header>
+    
+    
+    <section id="signup">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+
+            <div class="profile-pic-container">
+                <img id="profile-pic" src="../static/images/default.png" alt="Profile Picture" class="profile-pic" />
+                <label for="signup-profile-pic" class="file-upload-label">Upload your profile pic here.</label>
+                <input type="file" id="signup-profile-pic" accept="image/jpeg, image/png" required>
+            </div>
+
+            <label for="signup-name">Name:</label>
+            <input type="text" id="signup-name" required>
+    
+            <label for="signup-email">Email:</label>
+            <input type="email" id="signup-email" required>
+
+            <label for="signup-password">Password:</label>
+            <input type="password" id="signup-password" required>
+    
+            <label for="signup-phone">Phone:</label>
+            <input type="tel" id="signup-phone" required>
+    
+            <label for="signup-skills">Skills:</label>
+            <input type="text" id="signup-skills" required>
+    
+            <label for="signup-education">Education:</label>
+            <input type="text" id="signup-education" required>
+    
+            <label for="signup-year">Year of Passing:</label>
+            <input type="text" id="signup-year" required>
+    
+            <label for="signup-percentage">Percentage:</label>
+            <input type="text" id="signup-percentage" required>
+
+            <p>Already have an account? <a href="signin.html">Sign in here</a></p>
+    
+            <button type="submit">Create Account</button>
+        </form>
+    </section>
+    <script src="../static/js/signup.js"></script>
+</body>
+</html>

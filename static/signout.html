@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - JobConnect</title>
+    <style>
+        /* Page Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom right, #1a73e8, #4285f4, #81b0ff);
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+        }
+        /* Main container */
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease;
+        }
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Message Styling */
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        /* Button Styling */
+        .home-button {
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            background-color: #955982;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.4s ease, transform 0.3s ease;
+            text-decoration: none;
+        }
+        .home-button:hover {
+            background-color: #fb0079;
+            transform: scale(1.05);
+        }
+        .home-button:active {
+            transform: scale(0.98);
+        }
+        /* Decoration for footer */
+        footer {
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Thank You for Visiting JobConnect!</h1>
+        <p>We hope you found the perfect job. Come back soon to explore more opportunities!</p>
+        <button id="signout-btn" class="home-button">Bye..Bye..</button>
+        <br><br>
+        click here to say bye bye
+        <footer>
+            <p>&copy; 2024 JobConnect. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Signout function to call the signout route on the server
+        async function signOut() {
+            try {
+                
+                    alert('You have been signed out successfully!');
+                    window.location.href = './signin.html';  // Redirect to login page
+            } catch (error) {
+                alert('An error occurred during sign out.');
+            }
+        }
+
+        // Attach event listener to the signout button
+        document.getElementById('signout-btn').addEventListener('click', signOut);
+        
+        // Simple alert to thank the user after 2 seconds
+        setTimeout(() => {
+            alert('Thank you for being a valued visitor to JobConnect!');
+        }, 2000);
+    </script>
+</body>
+</html>
