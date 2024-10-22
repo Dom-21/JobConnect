@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobConnect</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/styles.css"> <!-- Link to the updated CSS -->
+</head>
+<body>
+    <header>
+        
+        <a href="./dashboard.html" class="home-button">Home</a> <!-- Home button added -->
+        <h1>JobConnect</h1>
+        <div class="dark-mode-toggle">
+           <!-- Add this inside your header or wherever appropriate -->
+        <label class="switch">
+            <span>Dark Mode</span>
+            <input type="checkbox" id="dark-mode-toggle">
+            <span class="slider round"></span>
+            
+        </label>
+  
+        </div>
+    </header>
+    
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search jobs...">
+        <button id="search-button">Search</button>
+        <select id="sort-options">
+            <option value="">Sort by</option>
+            <option value="title-asc">Title (A-Z)</option>
+            <option value="title-desc">Title (Z-A)</option>
+            <option value="experience">Experience Required</option>
+        </select>
+    </div>
+    
+    <div id="pagination">
+        <button id="prev-button">Previous</button>
+        <span id="page-info"></span>
+        <button id="next-button">Next</button>
+    </div>
+    
+    <main>
+        <div id="job-list"></div>
+    </main>
+
+    <div id="job-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-button">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p><strong>Company:</strong> <span id="modal-company"></span></p>
+            <p><strong>Description:</strong> <span id="modal-description"></span></p>
+            <p><strong>Requirements:</strong> <span id="modal-requirements"></span></p>
+            <p><strong>Location:</strong> <span id="modal-location"></span></p>
+            <p><strong>Salary:</strong> <span id="modal-salary"></span></p>
+            <p><strong>Skills:</strong> <span id="modal-skills"></span></p>
+            <p><strong>Qualification:</strong> <span id="modal-qualification"></span></p>
+            <p><strong>Year of Passing:</strong> <span id="modal-year"></span></p>
+            <p><strong>Percentage Criteria:</strong> <span id="modal-percentage"></span></p>
+            <p><strong>Interview Mode:</strong> <span id="modal-interview-mode"></span></p>
+            <p><strong>Interview Rounds:</strong> <span id="modal-interview-rounds"></span></p>
+            <p><strong>Career Page:</strong> <a id="modal-career-page" href="#" target="_blank">Company Career Page</a></p>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+    
+</body>
+</html>

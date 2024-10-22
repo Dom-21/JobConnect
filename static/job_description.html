@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Description Form</title>
+    <style id="theme-style">
+        /* Light Mode Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 80%;
+            height: 10%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        textarea {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #23be20;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .dark-mode .form-container {
+            background-color: #1e1e1e;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        .dark-mode button {
+            background-color: #000000;
+        }
+        .dark-mode button:hover {
+            background-color: #0f0046;
+        }
+
+        /* Toggle Switch Styles */
+        .switch {
+            padding: 10px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .switch input {
+            
+            display: none;
+        }
+        .slider {
+            margin: 10px;
+            
+            position: relative;
+            width: 34px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 34px;
+            transition: background-color 0.4s;
+            cursor: pointer;
+            
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.4s;
+        }
+        input:checked + .slider {
+            background-color: #000000;
+        }
+        input:checked + .slider:before {
+            transform: translateX(14px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="switch">
+    <label class="switch">Darkmode 
+        <input type="checkbox" id="dark-mode-toggle">
+        <span class="slider"></span>
+    </label>
+</div>
+
+<div class="form-container">
+    <h2>Add Job Description</h2>
+    <form id="job-description-form">
+        <label for="title">Job Title:</label>
+        <input type="text" id="title" required>
+
+        <label for="company">Company:</label>
+        <input type="text" id="company" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" rows="4" required></textarea>
+        
+        <label for="designation">Designation:</label>
+        <input type="text" id="designation" required>
+
+        <label for="requirements">Requirements:</label>
+        <textarea id="requirements" rows="4" required></textarea>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" required>
+
+        <label for="salary">Salary:</label>
+        <input type="text" id="salary" required>
+
+        <label for="skills">Skills:</label>
+        <input type="text" id="skills" required>
+
+        <label for="qualification">Qualification:</label>
+        <input type="text" id="qualification" required>
+
+        <label for="year">Year of Passing:</label>
+        <input type="text" id="year" required>
+
+        <label for="percentage">Percentage Criteria:</label>
+        <input type="text" id="percentage" required>
+
+        <label for="interviewMode">Interview Mode:</label>
+        <input type="text" id="interviewMode" required>
+
+        <label for="interviewRounds">Interview Rounds:</label>
+        <input type="text" id="interviewRounds" required>
+
+        <label for="careerPage">Career Page URL:</label>
+        <input type="url" id="careerPage" required>
+
+        <button type="submit">Submit Job Description</button>
+    </form>
+</div>
+
+<script>
+    
+    document.getElementById('job-description-form').addEventListener('submit', async function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        
+        try {
+            
+                    alert('Job description added successfully!');
+        } catch (error) {
+        console.error('Error adding job description:', error);
+        alert('An error occurred while adding the job description.');
+    }
+});
+
+    // Dark Mode Toggle
+    document.getElementById('dark-mode-toggle').addEventListener('change', function() {
+        document.body.classList.toggle('dark-mode', this.checked);
+    });
+</script>
+
+</body>
+</html>
