@@ -1,0 +1,10 @@
+
+Flask
+flask-mail
+flask-session
+mysql-connector-python
+python-dotenv
+flask-cors
+bcrypt
+gunicorn
+
